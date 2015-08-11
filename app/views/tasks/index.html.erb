@@ -3,7 +3,7 @@
   <%= f.label :task %>
   <%= f.text_field :task %>
   <%= f.submit %>
-<%= end %>
+<% end %>
 <ul>
   <% for task in @tasks %> <!-- @tasks is from controller -->
     <li><%= task.task %></li>
