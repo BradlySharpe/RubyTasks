@@ -42,6 +42,7 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+  gem 'launchy'
   #gem 'minitest' # Fix warning
   #gem 'turn' # Pretty printing to test results
   gem 'rspec-rails' # Testing
