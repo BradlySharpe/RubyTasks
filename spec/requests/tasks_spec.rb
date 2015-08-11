@@ -17,7 +17,7 @@ RSpec.describe "Tasks", type: :request do
 
       current_path.should == tasks_path
       page.should have_content 'go to work'
-      save_and_open_page #used launchy gem to let you see what is going on
+      #save_and_open_page #used launchy gem to let you see what is going on
     end
   end
 end
