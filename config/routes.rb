@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   #get 'tasks/index'
 
-  #root :to => 'Controller#action'
-  root :to => 'Tasks#index'
+  #root :to => 'controller#action'
+  root :to => 'tasks#index' # Must be lower case! Can find by calling `rake routes`
 
   resources :tasks
   # The priority is based upon order of creation: first created -> highest priority.
