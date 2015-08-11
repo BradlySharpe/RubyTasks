@@ -13,6 +13,10 @@ RSpec.describe "Tasks", type: :request do
     it "creates a new task" do
       visit tasks_path
       fill_in 'Task', :with => 'go to work'
+      click_button 'Add Task'
+
+      current_path.should == root_path
+      page.should have_content 'go to work'
       save_and_open_page #used launchy gem to let you see what is going on
     end
   end
