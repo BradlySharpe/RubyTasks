@@ -41,5 +41,10 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-end
 
+  gem 'turn' # Pretty printing to test results
+  gem 'rspec-rails' # Testing
+  gem 'capybara' # Automated user testing
+  gem 'guard-rspec' # Automatically run tests
+  #gem 'growl_notify' # On Mac shows notifications when tests have run with status
+end
