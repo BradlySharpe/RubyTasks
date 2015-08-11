@@ -1,0 +1,67 @@
+http://code.tutsplus.com/tutorials/the-intro-to-rails-screencast-i-wish-i-had--net-22191
+ - 26:40
+
+git:
+  GitPush without credentials
+    git config remote.origin.url https://brad7928:{PASSWORD}@github.com/brad7928/{REPO}.git
+  Remove origin/HEAD -> origin/master branch
+    git remote set-head origin -d
+
+Create new project
+  rails new { project name } -T
+    (-T don't create tests, uses TestUnit by default, most prefer to use rspec)
+
+Edit Gemfile and add the following in the test and development group
+  gem 'rspec-rails' # Testing
+  gem 'capybara' # Automated user testing
+  gem 'guard-rspec' # Automatically run tests
+
+Run bundle install to install the new gems
+
+See what generators are available by typing `rails generator`
+  Should show rspec:install
+
+Run `rails g rspec:install` to set up rspec
+  creates .rspec, /spec
+
+Run `guard init rspec` to initialise guard
+
+Test by running `guard` to automatically run tests
+
+Install rb-fsevent gem `gem install rb-fsevent`, don't know why?
+  http://stackoverflow.com/questions/13944398/what-does-rb-fsevent-do
+
+Create test
+  `rails g integration_test tasks`
+    Creates a new file in /spec/requests/tasks_spec.rb
+
+Run test with `guard`, test will fail
+
+Remove code between method and path in tasks_spec.rb
+  Replace with
+    it "display some tasks" do
+      visit tasks_path
+    end
+
+Add `resources :tasks` to /config/routes.rb
+  Run `rake routes` to check that routes have been created (should be 8)
+
+Guard will still fail as Tasks controller doesn't exists
+  create it - `rails g controller Tasks index` - creates it with and index view
+  Controllers usually named plural,
+  Models usually named singular
+
+Run rails server (should work now)
+  `rails server -b 192.168.1.200 -p 3000`
+
+/public contains static files
+
+Add default route
+  in /config/routes.rb add
+    root :to => 'controller#action' - the controller and action must be lowercase
+
+Create a model
+  `rails g model Task task:string` - Model name is singular, PK is created automatically
+
+Migrate/Create the database
+  `rake db:migrate`
